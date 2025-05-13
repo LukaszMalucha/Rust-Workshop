@@ -12,7 +12,7 @@ fn main() {
     let values = ["Ace", "Two", "Three"];
     // Double nested for loop
 
-    let cards = vec![];
+    let mut cards = vec![];
 
     for suit in suits {
         for value in values {
@@ -21,10 +21,8 @@ fn main() {
         }
     }
 
-    let deck = Deck {cards: vec![
-        
-    ] };
+    let deck = Deck { cards };
 
-    println!("Deck: {:?}", deck);
+    println!("Deck: {:#?}", deck);
 }
 
