@@ -21,17 +21,24 @@ impl Deck {
             }
         }
 
-        let deck = Deck { cards };
-
-        return deck;    
+        // Return statement simplified, remove ; at the end
+        Deck { cards }
     }
+    fn shuffle(&self) {
 
+
+    }
 }
 
 
 fn main() {
 
     let deck = Deck::new();
+    deck.shuffle();
+
     println!("Deck: {:#?}", deck);
 }
 
+//  cargo run
+//  crates.io
+// cargo add rand
