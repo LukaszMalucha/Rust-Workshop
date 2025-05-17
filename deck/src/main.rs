@@ -1,3 +1,6 @@
+use rand::{thread_rng, seq::SliceRandom};
+
+
 // Vec stands for vector
 #[derive(Debug)]
 struct Deck {
@@ -12,6 +15,7 @@ impl Deck {
         let values = ["Ace", "Two", "Three"];
         // Double nested for loop
 
+        // mut = mutable - can be changed
         let mut cards = vec![];
 
         for suit in suits {
@@ -24,16 +28,16 @@ impl Deck {
         // Return statement simplified, remove ; at the end
         Deck { cards }
     }
-    fn shuffle(&self) {
-
-
+    fn shuffle(&mut self) {
+        let mut rng = thread_rng();
+        self.cards.shuffle(&mut rng);
     }
 }
 
 
 fn main() {
-
-    let deck = Deck::new();
+    // deck is changing via shuffling = has to be mutable
+    let mut deck = Deck::new();
     deck.shuffle();
 
     println!("Deck: {:#?}", deck);
