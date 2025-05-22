@@ -35,9 +35,6 @@ fn print_account(account: Account) {
 }
 
 fn main() {
-    let bank = Bank::new();
-    let other_bank = bank;
+    
 
-
-    println!("{:#?}", other_bank);
 }
