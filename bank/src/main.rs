@@ -14,14 +14,15 @@ impl Account {
         }
     }
 
-    fn deposit(&mut self, amount: i32) {
+    fn deposit(&mut self, amount: i32) -> i32 {
         self.balance += amount;
+        self.balance
 
     }
 
-    fn withdraw(&mut self, amount: i32) {
+    fn withdraw(&mut self, amount: i32) -> i32 {
         self.balance -= amount;
-
+        self.balance    
     }
 }
 
