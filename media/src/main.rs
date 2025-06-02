@@ -5,6 +5,24 @@ enum Media {
     Audiobook {title: String}
 }
 
+impl Media {
+    fn description(&self) -> String {
+        match self {
+            Media::Book {title, author } => {
+                format!("Book: {} {}", title, author)
+            },
+            Media::Movie {title, director } => {
+                format!("Book: {} {}", title, director)
+            },
+            Media::Audiobook {title } => {
+                format!("Book: {}", title)
+            }
+        }
+
+    }
+
+}
+
 fn print_media(media: Media) {
     println!("{:#?}", media)
 
