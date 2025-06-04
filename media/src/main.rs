@@ -22,6 +22,22 @@ impl Media {
     }
 
 }
+#[derive(Debug)]
+struct Catalogue {
+    items: Vec<Media>
+}
+
+impl Catalogue {
+    fn new() -> Self {
+        Catalogue { items: vec![] }
+    }
+
+    fn add(&mut self, media: Media) {
+        self.items.push(media);
+
+    }
+
+}
 
 fn print_media(media: Media) {
     println!("{:#?}", media)
@@ -37,6 +53,10 @@ fn main() {
     };
     let good_movie = Media::Movie { title: String::from("The Matrix"), director: String::from("Wachowski brothers") };
 
-    print_media(audiobook);
-    print_media(good_movie);
+    // print_media(audiobook);
+    // print_media(good_movie);
+
+    let mut catalogue = Catalogue::new();
+    catalogue.add(audiobook);
+    catalogue.add(good_movie);
 }
