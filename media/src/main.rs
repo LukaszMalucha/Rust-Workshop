@@ -1,21 +1,30 @@
 #[derive(Debug)]
 enum Media {
-    Book {title: String, author: String},
-    Movie {title: String, director: String},
-    Audiobook {title: String}
+    Book { title: String, author: String },
+    Movie { title: String, director: String },
+    Audiobook { title: String },
+    Podcast (u32),
+    Placeholder
 }
 
 impl Media {
     fn description(&self) -> String {
         match self {
-            Media::Book {title, author } => {
+            Media::Book { title, author } => {
                 format!("Book: {} {}", title, author)
             },
-            Media::Movie {title, director } => {
+            Media::Movie { title, director } => {
                 format!("Book: {} {}", title, director)
             },
-            Media::Audiobook {title } => {
+            Media::Audiobook { title } => {
                 format!("Book: {}", title)
+            }
+            Media::Podcast(episode_number) => {
+                format!("Podcast {}", episode_number)
+            }
+
+            Media::Placeholder => {
+                format!("Placeholder")
             }
         }
 
@@ -53,10 +62,14 @@ fn main() {
     };
     let good_movie = Media::Movie { title: String::from("The Matrix"), director: String::from("Wachowski brothers") };
 
+    let podcast = Media::Podcast(33);
+    let placeholder = Media::Placeholder;
     // print_media(audiobook);
     // print_media(good_movie);
 
     let mut catalogue = Catalogue::new();
     catalogue.add(audiobook);
     catalogue.add(good_movie);
+    catalogue.add(podcast);
+    catalogue.add(placeholder);
 }
