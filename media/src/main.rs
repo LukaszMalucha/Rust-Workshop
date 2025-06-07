@@ -72,4 +72,13 @@ fn main() {
     catalogue.add(good_movie);
     catalogue.add(podcast);
     catalogue.add(placeholder);
+
+    match catalogue.items.get(100) {
+        Option::Some(value) => {
+            println!("Item: {:#?}", value);
+        }
+        Option::None => {
+            println!("Nothing here");
+        }
+    }
 }
