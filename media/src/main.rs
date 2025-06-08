@@ -46,6 +46,11 @@ impl Catalogue {
 
     }
 
+    fn get_by_index(&self, index: usize) -> &Media {
+        &self.items[index]
+
+    }
+
 }
 
 fn print_media(media: Media) {
@@ -73,12 +78,5 @@ fn main() {
     catalogue.add(podcast);
     catalogue.add(placeholder);
 
-    match catalogue.items.get(100) {
-        Option::Some(value) => {
-            println!("Item: {:#?}", value);
-        }
-        Option::None => {
-            println!("Nothing here");
-        }
-    }
+    let item = catalogue.get_by_index(0);
 }
