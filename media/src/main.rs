@@ -46,12 +46,18 @@ impl Catalogue {
 
     }
 
-    fn get_by_index(&self, index: usize) -> &Media {
-        &self.items[index]
+    fn get_by_index(&self, index: usize) -> Option<&Media> {
+        if self.items.len() > index {
+            Some(&self.items[index])
+        } else {
+            None    
+        }
+        
 
     }
 
 }
+
 
 fn print_media(media: Media) {
     println!("{:#?}", media)
