@@ -75,8 +75,7 @@ fn main() {
 
     let podcast = Media::Podcast(33);
     let placeholder = Media::Placeholder;
-    // print_media(audiobook);
-    // print_media(good_movie);
+
 
     let mut catalogue = Catalogue::new();
     catalogue.add(audiobook);
@@ -84,5 +83,10 @@ fn main() {
     catalogue.add(podcast);
     catalogue.add(placeholder);
 
-    let item = catalogue.get_by_index(0);
+    let item = catalogue.get_by_index(1);
+    let placeholder = Media::Placeholder;
+
+    println!("{:#?}", item.unwrap());
+    println!("{:#?}", item.expect("expected item"));
+    println!("{:#?}", item.unwrap_or(&placeholder));
 }
