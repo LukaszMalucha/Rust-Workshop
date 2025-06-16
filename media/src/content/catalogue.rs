@@ -1,3 +1,5 @@
+use super::media::Media;
+
 #[derive(Debug)]
 pub struct Catalogue {
     items: Vec<Media>
