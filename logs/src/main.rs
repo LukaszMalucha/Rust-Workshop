@@ -4,9 +4,19 @@ use std::io::Error;
 
 
 fn main() {
-    let text = fs::read_to_string("logs.txt");
+    // let text = fs::read_to_string("logs.txt");
 
-    println!("{:#?}", text);
+    // println!("{:#?}", text);
+
+    match divide(5.0, 0.0) {
+        Ok(result_of_division) => {
+            println!("{}", result_of_division);
+        }
+        Err(what_went_wrong) => {
+            println!("{}", what_went_wrong);
+        }
+    }
+
 }
 
 
