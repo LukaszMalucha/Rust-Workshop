@@ -17,6 +17,22 @@ fn main() {
         }
     }
 
+    match validate_email(String::from("asd@asdf.com")) {
+        Ok(..) => println!("email ok"),
+        Err(reason_this_failed_validation) => {
+            println!("{}",reason_this_failed_validation)
+        }
+    }
+
+}
+
+fn validate_email(email: String) -> Result<(), Error> {
+    if email.contains("@") {
+        Ok(())
+    } else {
+        Err(Error::other("emails must have an @"))
+    }
+
 }
 
 
