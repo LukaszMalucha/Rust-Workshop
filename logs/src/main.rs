@@ -16,12 +16,20 @@ fn extract_errors(text: &str) -> Vec<String> {
 }
 
 fn main() {
-    let mut error_logs = vec![];
 
 
     match fs::read_to_string("logs.txt") {
         Ok(text_that_was_read) => {
-            error_logs = extract_errors(text_that_was_read.as_str());
+            let error_logs = extract_errors(text_that_was_read.as_str());
+            println!("{:#?}", error_logs);
+
+            match fs::write("errors.txt", error_logs.join("\n")) {
+                Ok(..) => println!("File created"),
+                Err(reason_write_failed) => {
+                    println!("Failed to write file: {}", reason_write_failed)
+                }
+
+            }
             
         }
         Err(why_this_failed) => {
@@ -29,8 +37,6 @@ fn main() {
         }
         
     }
-
-    println!("{:#?}", error_logs);
 
 }
 
