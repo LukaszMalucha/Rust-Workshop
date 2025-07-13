@@ -6,8 +6,13 @@
 
 // }
 
+// fn print_elements(elements: &Vec<String>) {
+//     elements.iter().for_each(|el| println!("{}", el));
+// }
+
 fn print_elements(elements: &Vec<String>) {
-    elements.iter().for_each(|el| println!("{}", el));
+    elements
+    .iter().map(|el| format!("{} {}", el, el)).for_each(|el| println!("{} {}", el, el));
 }
 
 
