@@ -10,13 +10,17 @@
 //     elements.iter().for_each(|el| println!("{}", el));
 // }
 
-fn print_elements(elements: &Vec<String>) {
+fn print_elements(elements: &[String]) {
     elements
     .iter().map(|el| format!("{} {}", el, el)).for_each(|el| println!("{} {}", el, el));
 }
 
-fn shorten_strings(elements: &mut Vec<String>) {
+fn shorten_strings(elements: &mut [String]) {
     elements.iter_mut().for_each(|el| el.truncate(1));
+}
+
+fn to_uppercase(elements: &[String]) -> Vec<String> {
+    elements.iter().map(|el| el.to_uppercase()).collect()
 }
 
 
@@ -28,5 +32,11 @@ fn main() {
     ];
 
 
-    shorten_strings(&mut colors);
+    // shorten_strings(&mut colors[1..3]);
+
+
+    // println!("{:#?}", colors);
+
+    let uppercase = to_uppercase(&colors);
+    println!("{:#?}", uppercase);
 }
