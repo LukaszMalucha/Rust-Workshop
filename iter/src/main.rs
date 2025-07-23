@@ -30,6 +30,10 @@ fn move_elements(vec_a: Vec<String>, vec_b: &mut Vec<String>) {
 
 }
 
+fn explode(elements: &[String]) -> Vec<Vec<String>> {
+    elements.iter().map(|el| el.chars().map(|c| c.to_string()).collect()).collect()
+}
+
 
 fn main() {
     let mut colors = vec![
@@ -50,4 +54,6 @@ fn main() {
     let mut destination = vec![];
     move_elements(colors, &mut destination);
     println!("Destination: {:#?}", destination);
+    let exploded = explode(&colors);
+    println!("Exploded: {:#?}", exploded);
 }
