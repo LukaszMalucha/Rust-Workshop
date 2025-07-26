@@ -1,4 +1,4 @@
-fn next_language(languages: &[String], current: &str) {
+fn next_language(languages: &[String], current: &str) -> &str {
     let mut found = false;
 
     for lang in languages {
@@ -10,6 +10,8 @@ fn next_language(languages: &[String], current: &str) {
         }
     }
 
+    languages.last().unwrap()
+
 }
 
 
@@ -20,7 +22,7 @@ fn main() {
         String::from("js"),
     ]
 
-    let result = next_language(&langauges, "go");
+    // let result = next_language(&langauges, "go");
 
     println!("{}", result);
 
